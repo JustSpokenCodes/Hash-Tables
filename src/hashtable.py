@@ -20,7 +20,6 @@ class HashTable:
     def _hash(self, key):
         '''
         Hash an arbitrary key and return an integer.
-
         You may replace the Python hash with DJB2 as a stretch goal.
         '''
         return hash(key)
@@ -29,7 +28,6 @@ class HashTable:
     def _hash_djb2(self, key):
         '''
         Hash an arbitrary key using DJB2 hash
-
         OPTIONAL STRETCH: Research and implement DJB2
         '''
         pass
@@ -44,21 +42,22 @@ class HashTable:
 
 
     def insert(self, key, value):
-        '''
+        
         Store the value with the given key.
-
         # Part 1: Hash collisions should be handled with an error warning. (Think about and
         # investigate the impact this will have on the tests)
-
         # Part 2: Change this so that hash collisions are handled with Linked List Chaining.
-
         Fill this in.
-        '''
-        pass
 
+        pos = self._hash_mod(key)
+        head = self.storage[pos]
+        new_head = LinkedPair(key, value)
+        new_head.next = head
+        self.storage[pos] = new_head
 
 
     def remove(self, key):
+        
         '''
         Remove the value stored with the given key.
 
@@ -66,7 +65,8 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        pos = self._hash_mod(key)
+        
 
 
     def retrieve(self, key):

@@ -1,3 +1,5 @@
+import time
+
 class DynamicArray:
     def __init__(self, capacity=8):
         self.capacity = capacity
