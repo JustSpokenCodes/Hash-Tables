@@ -7,6 +7,8 @@ class LinkedPair:
         self.value = value
         self.next = None
 
+# an array for storage
+# a hash function: turn a string into a number
 class HashTable:
     '''
     A hash table that with `capacity` buckets
@@ -66,8 +68,11 @@ class HashTable:
         Fill this in.
         '''
         pos = self._hash_mod(key)
-        
+        if self.storage[pos] is None:
+            print("The key is not there")
 
+        remove = self.storage[pos]
+        self.storage[pos] = remove.next
 
     def retrieve(self, key):
         '''
